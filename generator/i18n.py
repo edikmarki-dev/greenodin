@@ -150,7 +150,7 @@ def tr_ld(o, T, lang):
         return T(o) if CYR.search(o) else o
     return o
 
-SHARED = re.compile(r'^(img/|favicon\.ico$|site\.webmanifest$|assets/style\.css$)')
+SHARED = re.compile(r'^(img/|favicon\.ico$|site\.webmanifest$|assets/(style|privacy)\.css$)')
 def fix_url(u):
     """відносне посилання на спільний ресурс у кореневій теці → додаємо ../"""
     if re.match(r'^(https?:|mailto:|tel:|#|/|data:|javascript:)', u) or not u: return u

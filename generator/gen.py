@@ -164,7 +164,7 @@ def header(pre, main=False):
             f'<div id="m">{mob}</div></header>')
 def footer(pre):
     return (f'<footer><div class="w"><a href="{pre or "./"}">© GREENODIN</a><a href="{pre}patents.html">Патенти та сертифікати</a><a href="{pre}kontakty.html">Контакти</a><a href="{pre}sitemap.html">Карта сайту</a>'
-            f'<a href="#">Політика конфіденційності</a></div></footer>')
+            f'<a href="{pre}privacy.html">Політика конфіденційності</a></div></footer>')
 HEAD = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap">')
 CRUMB_LD = []
@@ -908,6 +908,7 @@ for p in FIELDS: field_page(p)
 for g in GROUPS: group_page(g)
 index_page(); sitemap(); patents_page(); catalog_page(); contacts_page()
 import blog; BLOG = blog.run(globals())
+import privacy; privacy.run(globals())
 sitemap_xml()
 
 # ---------- vercel.json: заголовки + 301 зі старого сайту ----------
