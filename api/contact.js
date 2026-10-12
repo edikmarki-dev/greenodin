@@ -1,9 +1,7 @@
-// Vercel Serverless Function: приймає заявки з форм сайту й надсилає їх на пошту через SMTP.
+// Vercel Serverless Function: приймає заявки з форм сайту й надсилає їх у Telegram.
 // Змінні середовища (Vercel → Project → Settings → Environment Variables):
-//   SMTP_HOST, SMTP_PORT (465 або 587), SMTP_USER, SMTP_PASS — поштова скринька, з якої йдуть листи
-//   MAIL_TO   — куди надсилати заявки (office@avelife.pro; кілька адрес через кому)
-//   MAIL_FROM — від кого (за замовчуванням SMTP_USER)
-const nodemailer = require('nodemailer');
+//   TELEGRAM_BOT_TOKEN — токен бота від @BotFather
+//   TELEGRAM_CHAT_ID   — id чату/групи/каналу, куди слати заявки (кілька id через кому)
 
 const hits = new Map(); // простий ліміт: не більше 5 заявок з однієї IP за 10 хвилин (у межах «теплого» інстансу)
 const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -29,26 +27,24 @@ module.exports = async (req, res) => {
   if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
     return res.status(400).json({ ok: false, error: 'Перевірте адресу пошти.' });
 
-  const port = Number(process.env.SMTP_PORT || 465);
-  const tr = nodemailer.createTransport({
-    host: process.env.SMTP_HOST, port, secure: port === 465,
-    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
-  });
+  const token = process.env.TELEGRAM_BOT_TOKEN, chats = String(process.env.TELEGRAM_CHAT_ID || '').split(',').map(x => x.trim()).filter(Boolean);
+  if (!token || !chats.length) {
+    console.error('telegram env is not set');
+    return res.status(500).json({ ok: false, error: 'Не вдалося надіслати. Зателефонуйте нам: +38 043 250 90 90.' });
+  }
   const rows = [['Тема', topic], ['Ім’я', name], ['Телефон', phone], ['Пошта', email], ['Повідомлення', message], ['Сторінка', page]]
     .filter(r => r[1]);
+  const text = '<b>🌱 ' + esc(topic) + '</b>\n' + rows.slice(1).map(r => `<b>${esc(r[0])}:</b> ${esc(r[1])}`).join('\n');
   try {
-    await tr.sendMail({
-      from: `"Сайт GREENODIN" <${process.env.MAIL_FROM || process.env.SMTP_USER}>`,
-      to: process.env.MAIL_TO || 'office@avelife.pro',
-      replyTo: email || undefined,
-      subject: `${topic}: ${name}, ${phone}`,
-      text: rows.map(r => `${r[0]}: ${r[1]}`).join('\n'),
-      html: '<table cellpadding="6" style="font:15px/1.4 Arial,sans-serif;border-collapse:collapse">' +
-        rows.map(r => `<tr><td style="color:#667;vertical-align:top">${esc(r[0])}</td><td>${esc(r[1]).replace(/\n/g, '<br>')}</td></tr>`).join('') + '</table>',
-    });
+    const results = await Promise.all(chats.map(chat_id =>
+      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id, text, parse_mode: 'HTML', disable_web_page_preview: true }),
+      }).then(r => r.json())));
+    if (!results.some(r => r && r.ok)) throw new Error(JSON.stringify(results[0]));
     return res.status(200).json({ ok: true });
   } catch (e) {
-    console.error('mail error', e && e.message);
+    console.error('telegram error', e && e.message);
     return res.status(500).json({ ok: false, error: 'Не вдалося надіслати. Зателефонуйте нам: +38 043 250 90 90.' });
   }
 };

@@ -5,7 +5,7 @@
 ## Структура
 - `public/` — готовий сайт, його і віддає Vercel (`outputDirectory` у `vercel.json`).
 - `generator/` — генератор: `gen.py`, `i18n.py`, `textclean.py`, словники `tr/`, дані `data/`, статика `static/`.
-- `api/contact.js` — відправка форми через SMTP (nodemailer).
+- `api/contact.js` — відправка форми у Telegram.
 - `vercel.json` — редіректи зі старого сайту та заголовки (генерується `gen.py`, руками не правити).
 
 ## Збірка
@@ -19,5 +19,5 @@
 - Переклади: `generator/tr/*.json`.
 
 ## Змінні середовища Vercel
-`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_TO`, `MAIL_FROM`.
+`TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` (кілька id через кому). Заявки з форм приходять у Telegram.
 Framework Preset: Other, Build Command порожній.
