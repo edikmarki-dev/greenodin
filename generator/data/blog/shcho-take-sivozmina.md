@@ -9,6 +9,8 @@ series_name: "Серія «Сівозміна»"
 series_order: 2
 short_title: "Що таке сівозміна і навіщо вона"
 crumb: "Що таке сівозміна"
+cover: sivozmina-what-cover.webp
+cover_alt: "Поле пшениці поруч із полем соняшнику й лісосмугою"
 icon: rotation
 published: 2026-10-12
 updated: 2026-10-12

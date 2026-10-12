@@ -30,7 +30,7 @@ Framework Preset: Other, Build Command порожній.
 - Промпти для картинок: `generator/data/blog_src/IMG_PROMPTS.md`.
 - `SITE_URL` у `gen.py` тимчасово `https://greenodin.vercel.app/`; після підключення домену змінити на `https://greenodin.site/` і зібрати знову.
 - Правило для текстів: дані виробника подаємо як власні, без приміток «за даними виробника».
-- Готові кластери: кислотність ґрунту (4 статті), картопля (2), сівозміна (6: `sivozmina-posibnyk` як опорна, далі `shcho-take-sivozmina`, `poperedniky-polovykh-kultur`, `poperedniky-ovochevykh-kultur`, `chornyi-rannii-zainiatyi-par`, `yak-skladaty-sivozminu`). У сівозміни обкладинок ще немає (стоять заглушки), промпти в `IMG_PROMPTS.md` рядки 12–23; після появи файлів додати `cover` і `cover_alt` у front matter.
+- Готові кластери: кислотність ґрунту (4 статті), картопля (2), сівозміна (6: `sivozmina-posibnyk` як опорна, далі `shcho-take-sivozmina`, `poperedniky-polovykh-kultur`, `poperedniky-ovochevykh-kultur`, `chornyi-rannii-zainiatyi-par`, `yak-skladaty-sivozminu`). Картинки сівозміни підключено (промпти в `IMG_PROMPTS.md`, рядки 12–23): обкладинки 1024×434 і внутрішні 1024×572 у `static/img/blog/`. Обкладинки, що прийшли в 16:9, кадруємо до 21:9 по центру.
 - Нормативи сівозмін беремо з постанови КМУ № 164 від 11.02.2010. Сторінка zakon.rada.gov.ua недоступна для автоматичного читання, тому цифри звірені за дзеркалом тексту й за іншими джерелами; перед публікацією звірити з чинною редакцією.
 - Далі: решта кластерів із `blog_src/PLAN.md`, калькулятор добрив для лінійки (`/kalkulyator.html`, uk/ru/en, норми в одному JSON), підключення домену.
 
