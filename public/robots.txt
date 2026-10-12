@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://greenodin.site/sitemap.xml
+Sitemap: https://greenodin.vercel.app/sitemap.xml

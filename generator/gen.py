@@ -130,7 +130,7 @@ SEC_SUB = {'pole': 'Зернові, зернобобові, технічні к�
            'dim': 'Квіти, хвойні, газон', 'liniyka': 'Базові добрива GREENODIN'}
 
 # ---------- каркас сторінки ----------
-SITE_URL = 'https://greenodin.site/'   # домен для canonical, sitemap.xml, Open Graph
+SITE_URL = 'https://greenodin.vercel.app/'   # домен для canonical, sitemap.xml, Open Graph. Після підключення домену змінити на https://greenodin.site/ і зібрати знову
 EMAIL = 'office@avelife.pro'
 PHONE, PHONE_T = '+380432509090', '+38 043 250 90 90'
 ADDR = 'Вінниця, вул. Миколи Оводова, 51, корп. 1, 5 поверх'
@@ -177,11 +177,35 @@ def meta_desc(d, n=160):
     m = max(cut.rfind('. '), cut.rfind('! '), cut.rfind('? '))
     if m >= 90: return cut[:m + 1]
     return cut[:cut.rfind(' ')].rstrip(' ,;:—–-') + '…'
+OG_CACHE = {}
+def og_image(rel):
+    """Картинка 1200×630 JPEG для соцмереж і месенджерів (webp і малі квадрати показуються погано)."""
+    rel = rel or 'img/hero.jpg'
+    if rel in OG_CACHE: return OG_CACHE[rel]
+    from PIL import Image
+    src = os.path.join(OUT, rel)
+    if not os.path.exists(src): src = os.path.join(OUT, 'img/hero.jpg'); rel = 'img/hero.jpg'
+    name = re.sub(r'[^A-Za-z0-9_-]+', '-', os.path.splitext(rel)[0]).strip('-') + '.jpg'
+    dst = os.path.join(OUT, 'img', 'og', name)
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    im = Image.open(src).convert('RGB'); W, H = 1200, 630
+    if im.width / im.height > 1.5:   # широка: заповнюємо кадр
+        k = max(W / im.width, H / im.height)
+        im = im.resize((round(im.width * k), round(im.height * k)), Image.LANCZOS)
+        l, t = (im.width - W) // 2, (im.height - H) // 2
+        out = im.crop((l, t, l + W, t + H))
+    else:                            # квадратна: по центру на світлому тлі
+        k = 560 / im.height
+        im = im.resize((round(im.width * k), 560), Image.LANCZOS)
+        out = Image.new('RGB', (W, H), (243, 246, 244)); out.paste(im, ((W - im.width) // 2, 35))
+    out.save(dst, 'JPEG', quality=85, optimize=True)
+    OG_CACHE[rel] = 'img/og/' + name
+    return OG_CACHE[rel]
 def doc(path, title, desc, body, main=False, extra_js='', ld=None, image=None, head_extra=''):
     pre = '../' * path.count('/')
     desc = meta_desc(desc)
     url = SITE_URL + ('' if path == 'index.html' else path)
-    img = SITE_URL + (image or 'img/hero.jpg')
+    img = SITE_URL + og_image(image)
     lds = list(ld or [])
     if CRUMB_LD:
         lds.append({'@context': 'https://schema.org', '@type': 'BreadcrumbList', 'itemListElement': [
@@ -192,7 +216,8 @@ def doc(path, title, desc, body, main=False, extra_js='', ld=None, image=None, h
             f'<meta property="og:type" content="{"website" if main else "article"}"><meta property="og:site_name" content="GREENODIN">'
             f'<meta property="og:locale" content="uk_UA"><meta property="og:title" content="{E(title)}">'
             f'<meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:image" content="{img}">'
-            f'<meta name="twitter:card" content="summary_large_image">{HEAD}'
+            f'<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/jpeg">'
+            f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{img}">{HEAD}'
             f'<link rel="icon" href="{pre}favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{pre}img/favicon-32.png">'
             f'<link rel="apple-touch-icon" href="{pre}img/apple-touch-icon.png"><link rel="manifest" href="{pre}site.webmanifest"><meta name="theme-color" content="#0d3b22">'
             f'<link rel="stylesheet" href="{pre}assets/style.css">' + head_extra + ''.join(ld_script(x) for x in lds))
