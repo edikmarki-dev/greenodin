@@ -135,7 +135,7 @@ EMAIL = 'office@avelife.pro'
 PHONE, PHONE_T = '+380508243279', '+38 050 824 32 79'
 ADDR = 'Вінниця, вул. Миколи Оводова, 51, корп. 1, 5 поверх'
 MAP_Q = 'Вінниця, вулиця Миколи Оводова, 51'
-NAV = [('#about', 'Про GREENODIN'), ('/blog/', 'Блог'), ('patents.html', 'Патенти'), ('#partners', 'Партнерам'), ('kontakty.html', 'Контакти')]
+NAV = [('#about', 'Про GREENODIN'), ('/blog/', 'Блог'), ('patents.html', 'Документи'), ('#partners', 'Партнерам'), ('kontakty.html', 'Контакти')]
 CHEV = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>'
 def header(pre, main=False):
     home = pre or './'
