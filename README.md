@@ -21,3 +21,13 @@
 ## Змінні середовища Vercel
 `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` (кілька id через кому). Заявки з форм приходять у Telegram.
 Framework Preset: Other, Build Command порожній.
+
+## Блог і поточний стан (для нового сеансу)
+
+- Блог: `generator/blog.py`, статті `generator/data/blog/*.md` (front matter + markdown), стилі `generator/static/assets/blog.css`, картинки `generator/static/img/blog/`. Збірка `sh generator/build.sh`. Автор усіх статей Тимур Лєвда, фото `img/blog/author-levda.webp`.
+- Блог лише українською (`UK_ONLY` в `i18n.py`); ru/en переклад блогу ще не зроблено.
+- План переносу статей зі старого блогу: `generator/data/blog_src/` (INDEX.md, PLAN.md, GROW.md; тексти 01–18.md). Редиректи старих slug лежать у `vercel_json()` в `gen.py` (нерозібрані ведуть на `/blog/`).
+- Промпти для картинок: `generator/data/blog_src/IMG_PROMPTS.md`.
+- `SITE_URL` у `gen.py` тимчасово `https://greenodin.vercel.app/`; після підключення домену змінити на `https://greenodin.site/` і зібрати знову.
+- Правило для текстів: дані виробника подаємо як власні, без приміток «за даними виробника».
+- Далі: калькулятор добрив для лінійки (`/kalkulyator.html`, uk/ru/en, норми в одному JSON), підключення домену, перенесення решти статей.
