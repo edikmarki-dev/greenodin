@@ -10,7 +10,7 @@ import yaml, markdown
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, 'data', 'blog')
-AUTHOR = {'name': 'Тимур Лєвда', 'initials': 'ТЛ',
+AUTHOR = {'name': 'Тимур Лєвда', 'initials': 'ТЛ', 'photo': 'img/blog/author-levda.webp',
           'job': 'Директор НВ ТОВ «СІНТА», розробник органічних добрив ТМ GREENODIN'}
 SECTIONS = ['Практика агронома', 'Вирощування культур']
 E = lambda s: H.escape(str(s or ''), quote=True)
@@ -71,7 +71,7 @@ def run(G):
              'inLanguage': 'uk', 'datePublished': a['published'], 'dateModified': a['updated'],
              'mainEntityOfPage': {'@type': 'WebPage', '@id': url}, 'url': url,
              'articleSection': a['section'], 'wordCount': a['words'],
-             'author': {'@type': 'Person', 'name': AUTHOR['name'], 'jobTitle': 'Директор',
+             'author': {'@type': 'Person', 'name': AUTHOR['name'], 'jobTitle': 'Директор', 'image': SITE_URL + AUTHOR['photo'],
                         'worksFor': {'@type': 'Organization', 'name': 'НВ ТОВ «СІНТА»'}, 'description': AUTHOR['job']},
              'publisher': ORG}
         if a.get('cover'): d['image'] = [SITE_URL + 'img/blog/' + a['cover']]
@@ -117,14 +117,14 @@ def run(G):
                    f'<a class="bl-btn bl-btn-w" href="{pre}kontakty.html">Зв’яжіться з нами</a></div></aside>')
         body = (f'<main class="bl"><div class="w">{crumb}'
                 f'<div class="bl-hd"><span class="bl-tag">{E(a["section"])}</span><h1>{E(a["title"])}</h1><p class="bl-lead">{E(a["desc"])}</p>'
-                f'<div class="bl-by"><span class="bl-av" aria-hidden="true">{AUTHOR["initials"]}</span><span><b>{AUTHOR["name"]}</b> · {E(AUTHOR["job"].split(",")[0])}</span>'
+                f'<div class="bl-by"><img class="bl-av" src="{pre}{AUTHOR["photo"]}" alt="" width="44" height="44" decoding="async"><span><b>{AUTHOR["name"]}</b> · {E(AUTHOR["job"].split(",")[0])}</span>'
                 f'<span class="bl-dot">·</span><span>Оновлено <time datetime="{a["updated"]}">{human_date(a["updated"])}</time></span><span class="bl-dot">·</span><span>{a["minutes"]} хв читання</span></div></div>'
                 f'{cover(a, pre, "bl-hero")}'
                 f'<div class="bl-cols"><article class="bl-art">'
                 f'<section class="bl-short" aria-labelledby="sh"><h2 id="sh">Коротко</h2><ul>{short}</ul></section>'
                 f'{body_html}{prod}'
                 f'<section class="bl-faq" aria-labelledby="faq"><h2 id="faq">Часті запитання</h2>{faq}</section>'
-                f'<section class="bl-au" aria-label="Автор"><span class="bl-av bl-av-l" aria-hidden="true">{AUTHOR["initials"]}</span>'
+                f'<section class="bl-au" aria-label="Автор"><img class="bl-av bl-av-l" src="{pre}{AUTHOR["photo"]}" alt="{AUTHOR["name"]}" width="64" height="64" loading="lazy" decoding="async">'
                 f'<div><div class="bl-lab">Автор</div><b>{AUTHOR["name"]}</b><p>{E(AUTHOR["job"])}.</p>'
                 f'<p class="bl-dates">Опубліковано {human_date(a["published"])}. Оновлено {human_date(a["updated"])}.</p></div></section>'
                 f'{src}</article>{sidebar}</div>{relh}</div></main>')

@@ -108,3 +108,6 @@
 .bl-cv.bl-ph,.bl-hero.bl-ph{display:flex;background:linear-gradient(135deg,#0d3b22,#1d6a3d)}
 
 .bl-art img{display:block;width:100%;height:auto;border-radius:14px;margin:6px 0 22px;background:var(--card)}
+
+img.bl-av{object-fit:cover;background:var(--card);border:1px solid var(--ln)}
+.bl-art img.bl-av{width:64px;height:64px;max-width:none;border-radius:99px;margin:0;flex:none}.bl-by img.bl-av{border-radius:99px}
