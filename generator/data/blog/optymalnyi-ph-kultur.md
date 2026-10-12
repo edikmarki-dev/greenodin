@@ -8,6 +8,8 @@ series_name: "Серія «Кислотність ґрунту»"
 series_order: 3
 short_title: "Оптимальний pH для культур"
 crumb: "Оптимальний pH для культур"
+cover: ph-crops.webp
+cover_alt: "Польові й овочеві культури на ґрунті"
 icon: ph
 published: 2026-10-12
 updated: 2026-10-12

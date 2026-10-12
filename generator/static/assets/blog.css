@@ -106,3 +106,5 @@
 .bl-card .bl-ph span{display:none}.bl-card .bl-ph svg{width:44px;height:44px}
 
 .bl-cv.bl-ph,.bl-hero.bl-ph{display:flex;background:linear-gradient(135deg,#0d3b22,#1d6a3d)}
+
+.bl-art img{display:block;width:100%;height:auto;border-radius:14px;margin:6px 0 22px;background:var(--card)}

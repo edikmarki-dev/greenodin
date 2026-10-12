@@ -142,7 +142,7 @@ def run(G):
         secs = [s for s in SECTIONS if any(a['section'] == s for a in arts)]
         chips = '<div class="bl-chips" role="group" aria-label="Рубрики"><button type="button" class="bl-chip on" data-s="">Усі статті</button>' + ''.join(
             f'<button type="button" class="bl-chip" data-s="{E(s)}">{E(s)}</button>' for s in secs) + '</div>'
-        cards = ''.join(f'<div class="bl-it" data-s="{E(a["section"])}">{card(a, "")}</div>' for a in arts)
+        cards = ''.join(f'<div class="bl-it" data-s="{E(a["section"])}">{card(a, "../")}</div>' for a in arts)
         body = (f'<main class="bl"><section class="bl-top"><div class="w"><h1>Блог про органічні добрива і ґрунт</h1>'
                 f'<p>Практика агронома, технології GREENODIN, відновлення ґрунтів. Пише {AUTHOR["name"]}, директор НВ ТОВ «СІНТА».</p></div></section>'
                 f'<div class="w">{chips}<div class="bl-grid bl-gl" id="blg">{cards}</div>'

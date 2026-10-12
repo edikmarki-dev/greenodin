@@ -8,6 +8,8 @@ series_name: "Серія «Кислотність ґрунту»"
 series_order: 4
 short_title: "Як розкислити або підкислити"
 crumb: "Як розкислити ґрунт"
+cover: ph-liming.webp
+cover_alt: "Внесення гранульованого добрива на полі"
 icon: leaf
 published: 2026-10-12
 updated: 2026-10-12
