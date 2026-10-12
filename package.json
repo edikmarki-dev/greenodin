@@ -1,0 +1,6 @@
+{
+  "name": "greenodin-site",
+  "private": true,
+  "engines": { "node": ">=18" },
+  "dependencies": { "nodemailer": "^6.9.16" }
+}

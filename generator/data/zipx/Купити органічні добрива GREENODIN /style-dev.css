@@ -1,0 +1,42 @@
+#logo p {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-transition: all 0.075s ease-out;
+    transition: all 0.075s ease-out;
+    justify-content: center;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    margin-bottom: 0px;
+}
+
+#logo p > img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    position: relative;
+    -ms-flex-item-align: center;
+    align-self: center;
+}
+
+fieldset + fieldset{
+	margin-top: 0px;
+}
+
+.simple-content .checkbox input[type=checkbox], .simple-content .checkbox-inline input[type=checkbox], .simple-content .radio input[type=radio], .simple-content .radio-inline input[type=radio]{
+	position: relative;
+}
+
+
+
+

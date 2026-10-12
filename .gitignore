@@ -1,0 +1,4 @@
+generator/build/
+__pycache__/
+node_modules/
+.vercel
