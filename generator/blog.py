@@ -20,6 +20,7 @@ ICONS = {  # прості лінійні іконки для обкладино�
     'ph': '<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/><path d="M8 15h8"/>',
     'potato': '<ellipse cx="12" cy="13" rx="8" ry="6"/><path d="M8 11h.01M13 10h.01M15 14h.01M10 15h.01"/><path d="M12 7c0-2 1-3 3-4"/>',
     'leaf': '<path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"/><path d="M5 19c3-5 6-8 11-10"/>',
+    'rotation': '<path d="M20 12a8 8 0 0 0-14-5.3L4 9"/><path d="M4 4v5h5"/><path d="M4 12a8 8 0 0 0 14 5.3L20 15"/><path d="M20 20v-5h-5"/>',
 }
 
 def human_date(iso):

@@ -926,7 +926,7 @@ def vercel_json():
         for sp in {path, path + '/'} - {'//'}:
             if sp in seen: continue
             seen.add(sp); reds.append({'source': sp, 'destination': dst, 'permanent': True})
-    OLDBLOG = {'viznachennya-kislotnosti-gruntu': '/blog/ph-gruntu.html'}
+    OLDBLOG = {'viznachennya-kislotnosti-gruntu': '/blog/ph-gruntu.html', 'sivozmina': '/blog/sivozmina-posibnyk.html'}
     for sl in ['sivozmina', 'yak-ekonomiti-na-mineralnih-dobrivah', 'viroshchuvannya-chasniku', 'leonardit-organchna-skladova-dobriv-greenodin',
                'gidrogeli-i-prirodni-silikati-u-silskomu-gospodarstvi', 'ekonomiya-vodi-z-dobrivami-greenodin', 'skorochennya-zastosuvannya-mineralnih-dobriv',
                'priskorennya-zrostannya-kultur', 'zbilshennya-vrozhaynosti', 'zbilshennya-cinnost-vrozhayu-za-rahunok-organichnosti',
