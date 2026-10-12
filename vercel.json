@@ -2,12 +2,12 @@
  "outputDirectory": "public",
  "redirects": [
   {
-   "source": "/dobrivo-dlya-abrykosy-greenodin-gray",
+   "source": "/dobrivo-dlya-abrykosy-greenodin-gray/",
    "destination": "/p/dobrivo-dlya-abrykosy-greenodin-gray.html",
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-abrykosy-greenodin-gray/",
+   "source": "/dobrivo-dlya-abrykosy-greenodin-gray",
    "destination": "/p/dobrivo-dlya-abrykosy-greenodin-gray.html",
    "permanent": true
   },
@@ -22,22 +22,22 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-kvitiv/dobryva-dlya-azaliyi-kimnatnoyi",
-   "destination": "/p/dobrivo-dlya-azalii-greenodin-brown-organchne.html",
-   "permanent": true
-  },
-  {
    "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-kvitiv/dobryva-dlya-azaliyi-kimnatnoyi/",
    "destination": "/p/dobrivo-dlya-azalii-greenodin-brown-organchne.html",
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-baklazhaniv-greenodin-gray/",
-   "destination": "/p/dobrivo-dlya-baklazhaniv-greenodin-gray.html",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-kvitiv/dobryva-dlya-azaliyi-kimnatnoyi",
+   "destination": "/p/dobrivo-dlya-azalii-greenodin-brown-organchne.html",
    "permanent": true
   },
   {
    "source": "/dobrivo-dlya-baklazhaniv-greenodin-gray",
+   "destination": "/p/dobrivo-dlya-baklazhaniv-greenodin-gray.html",
+   "permanent": true
+  },
+  {
+   "source": "/dobrivo-dlya-baklazhaniv-greenodin-gray/",
    "destination": "/p/dobrivo-dlya-baklazhaniv-greenodin-gray.html",
    "permanent": true
   },
@@ -62,12 +62,12 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-kvitiv/dobryva-dlya-bugenvilliyi/",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-kvitiv/dobryva-dlya-bugenvilliyi",
    "destination": "/p/dobrivo-dlya-bugenvil-greenodin-brown-organchne.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-kvitiv/dobryva-dlya-bugenvilliyi",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-kvitiv/dobryva-dlya-bugenvilliyi/",
    "destination": "/p/dobrivo-dlya-bugenvil-greenodin-brown-organchne.html",
    "permanent": true
   },
@@ -82,22 +82,22 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-yagid/dobriva-dlya-vinogradu",
-   "destination": "/p/dobrivo-dlya-vinogradu-greenodin-gray.html",
-   "permanent": true
-  },
-  {
    "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-yagid/dobriva-dlya-vinogradu/",
    "destination": "/p/dobrivo-dlya-vinogradu-greenodin-gray.html",
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-gazonu-greenodin-gray-granuli",
-   "destination": "/p/dobrivo-dlya-gazonu-greenodin-gray-granuli.html",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-yagid/dobriva-dlya-vinogradu",
+   "destination": "/p/dobrivo-dlya-vinogradu-greenodin-gray.html",
    "permanent": true
   },
   {
    "source": "/dobrivo-dlya-gazonu-greenodin-gray-granuli/",
+   "destination": "/p/dobrivo-dlya-gazonu-greenodin-gray-granuli.html",
+   "permanent": true
+  },
+  {
+   "source": "/dobrivo-dlya-gazonu-greenodin-gray-granuli",
    "destination": "/p/dobrivo-dlya-gazonu-greenodin-gray-granuli.html",
    "permanent": true
   },
@@ -122,22 +122,22 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-gostrogo-percyu-greenodin-gray",
-   "destination": "/p/dobrivo-dlya-gostrogo-percyu-greenodin-gray.html",
-   "permanent": true
-  },
-  {
    "source": "/dobrivo-dlya-gostrogo-percyu-greenodin-gray/",
    "destination": "/p/dobrivo-dlya-gostrogo-percyu-greenodin-gray.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobriva-dlya-gostrogo-percyu",
+   "source": "/dobrivo-dlya-gostrogo-percyu-greenodin-gray",
    "destination": "/p/dobrivo-dlya-gostrogo-percyu-greenodin-gray.html",
    "permanent": true
   },
   {
    "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobriva-dlya-gostrogo-percyu/",
+   "destination": "/p/dobrivo-dlya-gostrogo-percyu-greenodin-gray.html",
+   "permanent": true
+  },
+  {
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobriva-dlya-gostrogo-percyu",
    "destination": "/p/dobrivo-dlya-gostrogo-percyu-greenodin-gray.html",
    "permanent": true
   },
@@ -152,18 +152,13 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-kavuna-greenodin-gray",
-   "destination": "/p/dobrivo-dlya-kavuna-greenodin-gray.html",
-   "permanent": true
-  },
-  {
    "source": "/dobrivo-dlya-kavuna-greenodin-gray/",
    "destination": "/p/dobrivo-dlya-kavuna-greenodin-gray.html",
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-kapusti-greenodin-gray-granuli/",
-   "destination": "/p/dobrivo-dlya-kapusti-greenodin-gray-granuli.html",
+   "source": "/dobrivo-dlya-kavuna-greenodin-gray",
+   "destination": "/p/dobrivo-dlya-kavuna-greenodin-gray.html",
    "permanent": true
   },
   {
@@ -172,7 +167,7 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-kapusty/",
+   "source": "/dobrivo-dlya-kapusti-greenodin-gray-granuli/",
    "destination": "/p/dobrivo-dlya-kapusti-greenodin-gray-granuli.html",
    "permanent": true
   },
@@ -182,12 +177,17 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-kartopl-greenodin-gray-granuli/",
-   "destination": "/p/dobrivo-dlya-kartopl-greenodin-gray-granuli.html",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-kapusty/",
+   "destination": "/p/dobrivo-dlya-kapusti-greenodin-gray-granuli.html",
    "permanent": true
   },
   {
    "source": "/dobrivo-dlya-kartopl-greenodin-gray-granuli",
+   "destination": "/p/dobrivo-dlya-kartopl-greenodin-gray-granuli.html",
+   "permanent": true
+  },
+  {
+   "source": "/dobrivo-dlya-kartopl-greenodin-gray-granuli/",
    "destination": "/p/dobrivo-dlya-kartopl-greenodin-gray-granuli.html",
    "permanent": true
   },
@@ -202,12 +202,12 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-lohini-greenodin-brown-granuli/",
+   "source": "/dobrivo-dlya-lohini-greenodin-brown-granuli",
    "destination": "/p/dobrivo-dlya-lohini-greenodin-brown-granuli.html",
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-lohini-greenodin-brown-granuli",
+   "source": "/dobrivo-dlya-lohini-greenodin-brown-granuli/",
    "destination": "/p/dobrivo-dlya-lohini-greenodin-brown-granuli.html",
    "permanent": true
   },
@@ -222,17 +222,12 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-morkvi-greenodin-gray/",
-   "destination": "/p/dobrivo-dlya-morkvi-greenodin-gray.html",
-   "permanent": true
-  },
-  {
    "source": "/dobrivo-dlya-morkvi-greenodin-gray",
    "destination": "/p/dobrivo-dlya-morkvi-greenodin-gray.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-morkvy",
+   "source": "/dobrivo-dlya-morkvi-greenodin-gray/",
    "destination": "/p/dobrivo-dlya-morkvi-greenodin-gray.html",
    "permanent": true
   },
@@ -242,8 +237,8 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-ogirkiv-greenodin-gray-granuli/",
-   "destination": "/p/dobrivo-dlya-ogirkiv-greenodin-gray-granuli.html",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-morkvy",
+   "destination": "/p/dobrivo-dlya-morkvi-greenodin-gray.html",
    "permanent": true
   },
   {
@@ -252,7 +247,7 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-ogirkiv/",
+   "source": "/dobrivo-dlya-ogirkiv-greenodin-gray-granuli/",
    "destination": "/p/dobrivo-dlya-ogirkiv-greenodin-gray-granuli.html",
    "permanent": true
   },
@@ -262,8 +257,8 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-orhdey-greenodin-brown-organichne",
-   "destination": "/p/dobrivo-dlya-orhdey-greenodin-brown-organichne.html",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-ogirkiv/",
+   "destination": "/p/dobrivo-dlya-ogirkiv-greenodin-gray-granuli.html",
    "permanent": true
   },
   {
@@ -272,12 +267,17 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-kvitiv/dobryva-dlya-orhidej/",
+   "source": "/dobrivo-dlya-orhdey-greenodin-brown-organichne",
    "destination": "/p/dobrivo-dlya-orhdey-greenodin-brown-organichne.html",
    "permanent": true
   },
   {
    "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-kvitiv/dobryva-dlya-orhidej",
+   "destination": "/p/dobrivo-dlya-orhdey-greenodin-brown-organichne.html",
+   "permanent": true
+  },
+  {
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-kvitiv/dobryva-dlya-orhidej/",
    "destination": "/p/dobrivo-dlya-orhdey-greenodin-brown-organichne.html",
    "permanent": true
   },
@@ -312,12 +312,12 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-percyu",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-percyu/",
    "destination": "/p/dobrivo-dlya-percyu-greenodin-gray-granuli.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-percyu/",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-percyu",
    "destination": "/p/dobrivo-dlya-percyu-greenodin-gray-granuli.html",
    "permanent": true
   },
@@ -332,12 +332,12 @@
    "permanent": true
   },
   {
-   "source": "/dobriva-dlya-pomidoriv-greenodin-gray-granuli",
+   "source": "/dobriva-dlya-pomidoriv-greenodin-gray-granuli/",
    "destination": "/p/dobriva-dlya-pomidoriv-greenodin-gray-granuli.html",
    "permanent": true
   },
   {
-   "source": "/dobriva-dlya-pomidoriv-greenodin-gray-granuli/",
+   "source": "/dobriva-dlya-pomidoriv-greenodin-gray-granuli",
    "destination": "/p/dobriva-dlya-pomidoriv-greenodin-gray-granuli.html",
    "permanent": true
   },
@@ -352,12 +352,12 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-redysu-greenodin-gray/",
+   "source": "/dobrivo-dlya-redysu-greenodin-gray",
    "destination": "/p/dobrivo-dlya-redysu-greenodin-gray.html",
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-redysu-greenodin-gray",
+   "source": "/dobrivo-dlya-redysu-greenodin-gray/",
    "destination": "/p/dobrivo-dlya-redysu-greenodin-gray.html",
    "permanent": true
   },
@@ -372,12 +372,12 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-samshitu-greenodin-gray/",
+   "source": "/dobrivo-dlya-samshitu-greenodin-gray",
    "destination": "/p/dobrivo-dlya-samshitu-greenodin-gray.html",
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-samshitu-greenodin-gray",
+   "source": "/dobrivo-dlya-samshitu-greenodin-gray/",
    "destination": "/p/dobrivo-dlya-samshitu-greenodin-gray.html",
    "permanent": true
   },
@@ -392,22 +392,22 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-spatifluma-greenodin-brown-organichne",
-   "destination": "/p/dobrivo-dlya-spatifluma-greenodin-brown-organichne.html",
-   "permanent": true
-  },
-  {
    "source": "/dobrivo-dlya-spatifluma-greenodin-brown-organichne/",
    "destination": "/p/dobrivo-dlya-spatifluma-greenodin-brown-organichne.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-kvitiv/dobryva-dlya-spatyfiluma",
+   "source": "/dobrivo-dlya-spatifluma-greenodin-brown-organichne",
    "destination": "/p/dobrivo-dlya-spatifluma-greenodin-brown-organichne.html",
    "permanent": true
   },
   {
    "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-kvitiv/dobryva-dlya-spatyfiluma/",
+   "destination": "/p/dobrivo-dlya-spatifluma-greenodin-brown-organichne.html",
+   "permanent": true
+  },
+  {
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-kvitiv/dobryva-dlya-spatyfiluma",
    "destination": "/p/dobrivo-dlya-spatifluma-greenodin-brown-organichne.html",
    "permanent": true
   },
@@ -432,12 +432,12 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-troyand-greenodin-brown-organchne/",
+   "source": "/dobrivo-dlya-troyand-greenodin-brown-organchne",
    "destination": "/p/dobrivo-dlya-troyand-greenodin-brown-organchne.html",
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-troyand-greenodin-brown-organchne",
+   "source": "/dobrivo-dlya-troyand-greenodin-brown-organchne/",
    "destination": "/p/dobrivo-dlya-troyand-greenodin-brown-organchne.html",
    "permanent": true
   },
@@ -452,12 +452,12 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-tjulpaniv-greenodin-gray/",
+   "source": "/dobrivo-dlya-tjulpaniv-greenodin-gray",
    "destination": "/p/dobrivo-dlya-tjulpaniv-greenodin-gray.html",
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-tjulpaniv-greenodin-gray",
+   "source": "/dobrivo-dlya-tjulpaniv-greenodin-gray/",
    "destination": "/p/dobrivo-dlya-tjulpaniv-greenodin-gray.html",
    "permanent": true
   },
@@ -492,12 +492,12 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-hvojnyh/dobryva-dlya-tuyi",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-hvojnyh/dobryva-dlya-tuyi/",
    "destination": "/p/dobrivo-dlya-hvoynih-greenodin-brown-granuli.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-hvojnyh/dobryva-dlya-tuyi/",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-hvojnyh/dobryva-dlya-tuyi",
    "destination": "/p/dobrivo-dlya-hvoynih-greenodin-brown-granuli.html",
    "permanent": true
   },
@@ -522,12 +522,12 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-cibuli-greenodin-gray",
+   "source": "/dobrivo-dlya-cibuli-greenodin-gray/",
    "destination": "/p/dobrivo-dlya-cibuli-greenodin-gray.html",
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-cibuli-greenodin-gray/",
+   "source": "/dobrivo-dlya-cibuli-greenodin-gray",
    "destination": "/p/dobrivo-dlya-cibuli-greenodin-gray.html",
    "permanent": true
   },
@@ -552,12 +552,12 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-chasnyku",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-chasnyku/",
    "destination": "/p/dobrivo-dlya-chasniku-greenodin-gray-granuli.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-chasnyku/",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-ovochiv/dobryva-dlya-chasnyku",
    "destination": "/p/dobrivo-dlya-chasniku-greenodin-gray-granuli.html",
    "permanent": true
   },
@@ -572,12 +572,12 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-yabluni-greenodin-brown",
+   "source": "/dobrivo-dlya-yabluni-greenodin-brown/",
    "destination": "/p/dobrivo-dlya-yabluni-greenodin-brown.html",
    "permanent": true
   },
   {
-   "source": "/dobrivo-dlya-yabluni-greenodin-brown/",
+   "source": "/dobrivo-dlya-yabluni-greenodin-brown",
    "destination": "/p/dobrivo-dlya-yabluni-greenodin-brown.html",
    "permanent": true
   },
@@ -622,12 +622,12 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-greenodin-red",
+   "source": "/dobrivo-greenodin-red/",
    "destination": "/p/dobrivo-greenodin-red.html",
    "permanent": true
   },
   {
-   "source": "/dobrivo-greenodin-red/",
+   "source": "/dobrivo-greenodin-red",
    "destination": "/p/dobrivo-greenodin-red.html",
    "permanent": true
   },
@@ -642,12 +642,12 @@
    "permanent": true
   },
   {
-   "source": "/dobrivo-greenodin-multihumate/",
+   "source": "/dobrivo-greenodin-multihumate",
    "destination": "/p/dobrivo-greenodin-multihumate.html",
    "permanent": true
   },
   {
-   "source": "/dobrivo-greenodin-multihumate",
+   "source": "/dobrivo-greenodin-multihumate/",
    "destination": "/p/dobrivo-greenodin-multihumate.html",
    "permanent": true
   },
@@ -682,12 +682,12 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-zernovyh/dobryva-dlya-yachmenyu/",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-zernovyh/dobryva-dlya-yachmenyu",
    "destination": "/k/dobryva-dlya-yachmenyu-greenodin.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-zernovyh/dobryva-dlya-yachmenyu",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-zernovyh/dobryva-dlya-yachmenyu/",
    "destination": "/k/dobryva-dlya-yachmenyu-greenodin.html",
    "permanent": true
   },
@@ -702,18 +702,13 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobriva-dlya-zernobobovih-kultur/dobrivo-dlya-nutu",
-   "destination": "/k/dobryva-dlya-nutu-greenodin.html",
-   "permanent": true
-  },
-  {
    "source": "/katalog-organichnyh-dobryv-greenodin/dobriva-dlya-zernobobovih-kultur/dobrivo-dlya-nutu/",
    "destination": "/k/dobryva-dlya-nutu-greenodin.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobriva-dlya-zernobobovih-kultur/dobryvo-dlya-soyi/",
-   "destination": "/k/dobryva-dlya-soyi-greenodin.html",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobriva-dlya-zernobobovih-kultur/dobrivo-dlya-nutu",
+   "destination": "/k/dobryva-dlya-nutu-greenodin.html",
    "permanent": true
   },
   {
@@ -722,12 +717,17 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-tehnichnyh-kultur/dobryva-dlya-sonyashnyku",
-   "destination": "/k/dobryva-dlya-sonyashnyku-greenodin.html",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobriva-dlya-zernobobovih-kultur/dobryvo-dlya-soyi/",
+   "destination": "/k/dobryva-dlya-soyi-greenodin.html",
    "permanent": true
   },
   {
    "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-tehnichnyh-kultur/dobryva-dlya-sonyashnyku/",
+   "destination": "/k/dobryva-dlya-sonyashnyku-greenodin.html",
+   "permanent": true
+  },
+  {
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-tehnichnyh-kultur/dobryva-dlya-sonyashnyku",
    "destination": "/k/dobryva-dlya-sonyashnyku-greenodin.html",
    "permanent": true
   },
@@ -742,22 +742,22 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobrivo-dlya-konopli",
-   "destination": "/k/dobryva-dlya-konopli-greenodin.html",
-   "permanent": true
-  },
-  {
    "source": "/katalog-organichnyh-dobryv-greenodin/dobrivo-dlya-konopli/",
    "destination": "/k/dobryva-dlya-konopli-greenodin.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-zernovyh",
-   "destination": "/g/zernovi.html",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobrivo-dlya-konopli",
+   "destination": "/k/dobryva-dlya-konopli-greenodin.html",
    "permanent": true
   },
   {
    "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-zernovyh/",
+   "destination": "/g/zernovi.html",
+   "permanent": true
+  },
+  {
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-zernovyh",
    "destination": "/g/zernovi.html",
    "permanent": true
   },
@@ -772,12 +772,12 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-tehnichnyh-kultur",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-tehnichnyh-kultur/",
    "destination": "/g/tehnichni.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-tehnichnyh-kultur/",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-tehnichnyh-kultur",
    "destination": "/g/tehnichni.html",
    "permanent": true
   },
@@ -792,12 +792,12 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-yagid/",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-yagid",
    "destination": "/g/yagody.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-yagid",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-yagid/",
    "destination": "/g/yagody.html",
    "permanent": true
   },
@@ -832,12 +832,12 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-gazonu",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-gazonu/",
    "destination": "/g/hvoyni.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-gazonu/",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-gazonu",
    "destination": "/g/hvoyni.html",
    "permanent": true
   },
@@ -852,12 +852,12 @@
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-chagarnykiv",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-chagarnykiv/",
    "destination": "/g/hvoyni.html",
    "permanent": true
   },
   {
-   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-chagarnykiv/",
+   "source": "/katalog-organichnyh-dobryv-greenodin/dobryva-dlya-chagarnykiv",
    "destination": "/g/hvoyni.html",
    "permanent": true
   },
@@ -869,6 +869,196 @@
   {
    "source": "/katalog-organichnyh-dobryv-greenodin/dobriva-dlya-bulboplidnih-kultur",
    "destination": "/g/ovochi.html",
+   "permanent": true
+  },
+  {
+   "source": "/viznachennya-kislotnosti-gruntu",
+   "destination": "/blog/ph-gruntu.html",
+   "permanent": true
+  },
+  {
+   "source": "/viznachennya-kislotnosti-gruntu/",
+   "destination": "/blog/ph-gruntu.html",
+   "permanent": true
+  },
+  {
+   "source": "/sivozmina",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/sivozmina/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/yak-ekonomiti-na-mineralnih-dobrivah",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/yak-ekonomiti-na-mineralnih-dobrivah/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/viroshchuvannya-chasniku",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/viroshchuvannya-chasniku/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/leonardit-organchna-skladova-dobriv-greenodin",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/leonardit-organchna-skladova-dobriv-greenodin/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/gidrogeli-i-prirodni-silikati-u-silskomu-gospodarstvi",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/gidrogeli-i-prirodni-silikati-u-silskomu-gospodarstvi/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/ekonomiya-vodi-z-dobrivami-greenodin",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/ekonomiya-vodi-z-dobrivami-greenodin/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/skorochennya-zastosuvannya-mineralnih-dobriv",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/skorochennya-zastosuvannya-mineralnih-dobriv/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/priskorennya-zrostannya-kultur",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/priskorennya-zrostannya-kultur/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/zbilshennya-vrozhaynosti",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/zbilshennya-vrozhaynosti/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/zbilshennya-cinnost-vrozhayu-za-rahunok-organichnosti",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/zbilshennya-cinnost-vrozhayu-za-rahunok-organichnosti/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/tendentsiji-ta-investytsijni-mozhlyvosti-dovgostrokovyh-perspektyv-organichnogo-zemlerobstva",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/tendentsiji-ta-investytsijni-mozhlyvosti-dovgostrokovyh-perspektyv-organichnogo-zemlerobstva/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/suchasn-pidhodi-zabezpechennya-stalogo-silgospvirobnictva",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/suchasn-pidhodi-zabezpechennya-stalogo-silgospvirobnictva/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/ekologizacya-silskogo-gospodarstva-ta-ekologchne-pidpriemnictvo",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/ekologizacya-silskogo-gospodarstva-ta-ekologchne-pidpriemnictvo/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/rodyuchi-grunti-movchazna-zhertva-konfliktiv",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/rodyuchi-grunti-movchazna-zhertva-konfliktiv/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/podolannja-vplyvu-bojeprypasiv-na-rodjuchi-grunty",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/podolannja-vplyvu-bojeprypasiv-na-rodjuchi-grunty/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/ekocid-ukraines-naslidki-boyovih-dy-strateg-vidnovlennya",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/ekocid-ukraines-naslidki-boyovih-dy-strateg-vidnovlennya/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/dorozhne-gospodarstvo-ta-blagoustrij-mista",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/dorozhne-gospodarstvo-ta-blagoustrij-mista/",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/blog/page-2",
+   "destination": "/blog/",
+   "permanent": true
+  },
+  {
+   "source": "/blog/page-2/",
+   "destination": "/blog/",
    "permanent": true
   }
  ],

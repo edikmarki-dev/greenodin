@@ -11,6 +11,7 @@ SITE = os.environ.get('GREENODIN_OUT', os.path.join(os.path.dirname(HERE), 'publ
 FULL_INDEX = os.path.join(HERE, 'build', 'site_index_full.html')
 TR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tr')
 LANGS = ['ru', 'en']
+UK_ONLY = ('blog/',)   # сторінки без перекладу: лише українська, без hreflang
 CYR = re.compile(r'[А-Яа-яІіЇїЄєҐґ’]')
 ATTRS = ('alt', 'title', 'aria-label', 'placeholder', 'data-o', 'data-n', 'data-l')
 META_NAMES = {'description', 'og:title', 'og:description', 'twitter:title', 'twitter:description'}
@@ -20,7 +21,7 @@ def pages():
     out = []
     for f in sorted(glob.glob(SITE + '/**/*.html', recursive=True)):
         rel = os.path.relpath(f, SITE)
-        if rel.split('/')[0] in LANGS: continue
+        if rel.split('/')[0] in LANGS or rel.startswith(UK_ONLY): continue
         src = FULL_INDEX if rel == 'index.html' else f
         out.append((rel, open(src, encoding='utf-8').read()))
     return out
@@ -354,7 +355,7 @@ def build():
     # українські сторінки: hreflang + перемикач на місці
     for f in sorted(glob.glob(SITE + '/**/*.html', recursive=True)):
         rel = os.path.relpath(f, SITE)
-        if rel.split('/')[0] in LANGS: continue
+        if rel.split('/')[0] in LANGS or rel.startswith(UK_ONLY): continue
         doc = open(f, encoding='utf-8').read()
         open(f, 'w', encoding='utf-8').write(process(doc, rel, 'uk'))
         urls.append(rel)
@@ -382,6 +383,9 @@ def build():
         alts = ''.join(f'<xhtml:link rel="alternate" hreflang="{L}" href="{lang_url(rel, L)}"/>' for L in ALL) + f'<xhtml:link rel="alternate" hreflang="x-default" href="{lang_url(rel, "uk")}"/>'
         for L in ALL:
             rows.append(f'  <url><loc>{lang_url(rel, L)}</loc><lastmod>{today}</lastmod><priority>{pri(rel)}</priority>{alts}</url>\n')
+    for f in sorted(glob.glob(SITE + '/blog/*.html')):
+        rel = os.path.relpath(f, SITE)
+        rows.append(f'  <url><loc>{lang_url(rel, "uk")}</loc><lastmod>{today}</lastmod><priority>0.7</priority></url>\n')
     open(SITE + '/sitemap.xml', 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + ''.join(rows) + '</urlset>\n')
     n = sum(len(v) for v in MISSING.values())
     print('pages', len(urls), 'x', len(ALL), '| untranslated:', {k: len(v) for k, v in MISSING.items()})

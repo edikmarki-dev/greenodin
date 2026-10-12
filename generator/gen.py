@@ -135,11 +135,12 @@ EMAIL = 'office@avelife.pro'
 PHONE, PHONE_T = '+380432509090', '+38 043 250 90 90'
 ADDR = 'Вінниця, вул. Миколи Оводова, 51, корп. 1, 5 поверх'
 MAP_Q = 'Вінниця, вулиця Миколи Оводова, 51'
-NAV = [('#about', 'Про GREENODIN'), ('patents.html', 'Патенти'), ('#partners', 'Партнерам'), ('kontakty.html', 'Контакти')]
+NAV = [('#about', 'Про GREENODIN'), ('/blog/', 'Блог'), ('patents.html', 'Патенти'), ('#partners', 'Партнерам'), ('kontakty.html', 'Контакти')]
 CHEV = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>'
 def header(pre, main=False):
     home = pre or './'
     def href(h):
+        if h.startswith('/'): return h
         if not h.startswith('#'): return pre + h
         return h if main else (pre or './') + h
     links = ''.join(f'<a href="{href(h)}">{t}</a>' for h, t in NAV)
@@ -176,7 +177,7 @@ def meta_desc(d, n=160):
     m = max(cut.rfind('. '), cut.rfind('! '), cut.rfind('? '))
     if m >= 90: return cut[:m + 1]
     return cut[:cut.rfind(' ')].rstrip(' ,;:—–-') + '…'
-def doc(path, title, desc, body, main=False, extra_js='', ld=None, image=None):
+def doc(path, title, desc, body, main=False, extra_js='', ld=None, image=None, head_extra=''):
     pre = '../' * path.count('/')
     desc = meta_desc(desc)
     url = SITE_URL + ('' if path == 'index.html' else path)
@@ -194,7 +195,7 @@ def doc(path, title, desc, body, main=False, extra_js='', ld=None, image=None):
             f'<meta name="twitter:card" content="summary_large_image">{HEAD}'
             f'<link rel="icon" href="{pre}favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{pre}img/favicon-32.png">'
             f'<link rel="apple-touch-icon" href="{pre}img/apple-touch-icon.png"><link rel="manifest" href="{pre}site.webmanifest"><meta name="theme-color" content="#0d3b22">'
-            f'<link rel="stylesheet" href="{pre}assets/style.css">' + ''.join(ld_script(x) for x in lds))
+            f'<link rel="stylesheet" href="{pre}assets/style.css">' + head_extra + ''.join(ld_script(x) for x in lds))
     inner = f'{header(pre, main)}{body}{footer(pre)}<script src="{pre}assets/site.js"></script>{extra_js}'
     full = (f'<!doctype html><html lang="uk"><head><meta charset="utf-8">'
             f'<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">{head}</head>'
@@ -820,7 +821,7 @@ def sitemap_xml():
     from datetime import date
     today = date.today().isoformat()
     urls = sorted(set(PAGES))
-    pri = lambda p: '1.0' if p == 'index.html' else '0.9' if p == 'katalog.html' else '0.8' if p.startswith(('p/', 'k/')) else '0.6'
+    pri = lambda p: '1.0' if p == 'index.html' else '0.9' if p == 'katalog.html' else '0.8' if p.startswith(('p/', 'k/')) else '0.7' if p.startswith('blog/') else '0.6'
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(
         f'  <url><loc>{SITE_URL}{"" if u == "index.html" else u}</loc><lastmod>{today}</lastmod><priority>{pri(u)}</priority></url>\n' for u in urls) + '</urlset>\n'
     open(OUT + '/sitemap.xml', 'w', encoding='utf-8').write(xml)
@@ -880,7 +881,9 @@ for p in PRODUCTS:
     (line_page if p['kind'] == 'line' else product_page)(p)
 for p in FIELDS: field_page(p)
 for g in GROUPS: group_page(g)
-index_page(); sitemap(); patents_page(); catalog_page(); contacts_page(); sitemap_xml()
+index_page(); sitemap(); patents_page(); catalog_page(); contacts_page()
+import blog; BLOG = blog.run(globals())
+sitemap_xml()
 
 # ---------- vercel.json: заголовки + 301 зі старого сайту ----------
 def vercel_json():
@@ -898,6 +901,19 @@ def vercel_json():
         for sp in {path, path + '/'} - {'//'}:
             if sp in seen: continue
             seen.add(sp); reds.append({'source': sp, 'destination': dst, 'permanent': True})
+    OLDBLOG = {'viznachennya-kislotnosti-gruntu': '/blog/ph-gruntu.html'}
+    for sl in ['sivozmina', 'yak-ekonomiti-na-mineralnih-dobrivah', 'viroshchuvannya-chasniku', 'leonardit-organchna-skladova-dobriv-greenodin',
+               'gidrogeli-i-prirodni-silikati-u-silskomu-gospodarstvi', 'ekonomiya-vodi-z-dobrivami-greenodin', 'skorochennya-zastosuvannya-mineralnih-dobriv',
+               'priskorennya-zrostannya-kultur', 'zbilshennya-vrozhaynosti', 'zbilshennya-cinnost-vrozhayu-za-rahunok-organichnosti',
+               'tendentsiji-ta-investytsijni-mozhlyvosti-dovgostrokovyh-perspektyv-organichnogo-zemlerobstva', 'suchasn-pidhodi-zabezpechennya-stalogo-silgospvirobnictva',
+               'ekologizacya-silskogo-gospodarstva-ta-ekologchne-pidpriemnictvo', 'rodyuchi-grunti-movchazna-zhertva-konfliktiv',
+               'podolannja-vplyvu-bojeprypasiv-na-rodjuchi-grunty', 'ekocid-ukraines-naslidki-boyovih-dy-strateg-vidnovlennya',
+               'dorozhne-gospodarstvo-ta-blagoustrij-mista', 'blog/page-2']:
+        OLDBLOG.setdefault(sl, '/blog/')   # тимчасово на індекс, поки статтю не перенесено
+    OLDBLOG['viroshchuvannya-chasniku'] = '/blog/'
+    for sl, dst in OLDBLOG.items():
+        for sp in ('/' + sl, '/' + sl + '/'):
+            if sp not in seen: seen.add(sp); reds.append({'source': sp, 'destination': dst, 'permanent': True})
     cfg = {'outputDirectory': 'public', 'redirects': reds, 'headers': [
         {'source': '/assets/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=604800'}]},
         {'source': '/ru/assets/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=604800'}]},

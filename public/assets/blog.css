@@ -1,0 +1,108 @@
+/* Блог GREENODIN. Змінні й шрифти беруться з style.css */
+.bl{padding-bottom:24px;font-size:17px;line-height:1.65}
+.bl h1,.bl h2,.bl h3{color:var(--tx)}
+.bl-lab{font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--mu);margin:0 0 10px}
+.bl-lab-l{color:#7be39a}
+.bl-tag{display:inline-block;background:var(--card);border:1px solid var(--ln);border-radius:99px;padding:4px 13px;font-size:14px;font-weight:600;color:var(--dg)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .bl-tag{color:var(--g)}}
+:root[data-theme="dark"] .bl-tag{color:var(--g)}
+
+/* шапка статті */
+.bl-hd{max-width:820px;padding:8px 0 4px}
+.bl-hd h1{margin:14px 0 14px;font-size:clamp(32px,4.6vw,52px);line-height:1.08;letter-spacing:-.025em;font-weight:800}
+.bl-lead{margin:0 0 20px;font-size:20px;line-height:1.5;color:var(--tx);opacity:.88;max-width:44em}
+.bl-by{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:15px;color:var(--mu)}
+.bl-by b{color:var(--tx)}.bl-dot{opacity:.5}
+.bl-av{flex:none;width:44px;height:44px;border-radius:99px;background:var(--dg);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:15px}
+.bl-av-l{width:64px;height:64px;font-size:20px}
+.bl-hero{display:block;width:100%;aspect-ratio:21/9;object-fit:cover;border-radius:16px;margin:22px 0 4px;background:var(--card)}
+.bl-hero.bl-ph{margin:22px 0 4px}
+
+/* обкладинка-заглушка */
+.bl-cv.bl-ph,.bl-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#0d3b22,#1d6a3d);color:#cfe9d8;font-size:14px;font-weight:600;letter-spacing:.04em}
+.bl-ph svg{width:56px;height:56px;stroke:#7be39a;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.bl-cv{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--card)}
+
+/* колонки */
+.bl-cols{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start;padding:28px 0 12px}
+.bl-art{flex:999 1 560px;min-width:0;max-width:740px}
+.bl-side{flex:1 1 260px;max-width:320px;min-width:240px;position:sticky;top:84px;display:flex;flex-direction:column;gap:18px;font-size:16px}
+.bl-art h2{margin:44px 0 14px;font-size:clamp(25px,3vw,30px);line-height:1.15;letter-spacing:-.02em;font-weight:800;scroll-margin-top:84px}
+.bl-art h3{margin:28px 0 10px;font-size:22px;font-weight:700}
+.bl-art p{margin:0 0 18px}.bl-art ul,.bl-art ol{margin:0 0 20px;padding-left:22px;display:flex;flex-direction:column;gap:8px}
+.bl-art a{color:var(--dg);text-decoration-thickness:1px;text-underline-offset:3px}.bl-art a:hover{color:var(--g)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .bl-art a{color:var(--g)}}
+:root[data-theme="dark"] .bl-art a{color:var(--g)}
+.bl-tw{overflow-x:auto;margin:6px 0 22px}.bl-art table{border-collapse:collapse;width:100%;font-size:16px;min-width:420px}
+.bl-art th{background:var(--dg);color:#fff;text-align:left;padding:11px 14px;font-weight:600;white-space:nowrap}
+.bl-art td{padding:11px 14px;border-bottom:1px solid var(--ln);vertical-align:top}
+.bl-art tbody tr:nth-child(even){background:var(--card)}
+.bl-art td:first-child{font-weight:600}
+.bl-art .note{font-size:15px;color:var(--mu)}
+
+/* коротко */
+.bl-short{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:22px 24px;margin:0 0 8px}
+.bl-art .bl-short h2{margin:0 0 10px;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--dg);font-weight:700}
+:root[data-theme="dark"] .bl-art .bl-short h2{color:var(--g)}
+.bl-short ul{margin:0}
+
+/* сайдбар */
+.bl-box{border:1px solid var(--ln);border-radius:16px;padding:20px 22px}
+.bl-toc,.bl-ser{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px}
+.bl-toc a{display:block;padding:7px 0 7px 12px;border-left:2px solid var(--ln);text-decoration:none;color:var(--mu);font-weight:500;font-size:15px;line-height:1.35}
+.bl-toc a:hover,.bl-toc a.on{border-left-color:var(--g);color:var(--tx)}.bl-toc a.on{font-weight:700}
+.bl-ser li{padding:6px 0;font-size:15px;line-height:1.35}.bl-ser a{text-decoration:none;color:var(--tx)}.bl-ser a:hover{color:var(--g)}.bl-ser b{color:var(--dg)}
+:root[data-theme="dark"] .bl-ser b{color:var(--g)}
+.bl-help{background:var(--dg);color:#fff;border-radius:16px;padding:22px}
+.bl-help b{display:block;font-size:19px;line-height:1.25;margin-bottom:8px}.bl-help p{margin:0 0 16px;font-size:15px;line-height:1.5;color:#d6e8dc}
+
+/* кнопки і продуктовий блок */
+.bl-btn{display:inline-block;background:var(--g);color:#fff;font-weight:700;text-decoration:none;border-radius:10px;padding:13px 22px;white-space:nowrap}
+.bl-art a.bl-btn,.bl-art a.bl-btn:hover{color:#fff}
+.bl-btn-w{display:block;text-align:center;background:#fff;color:var(--dg);padding:12px}
+.bl-prod{display:flex;gap:18px;align-items:center;flex-wrap:wrap;background:var(--dg);color:#fff;border-radius:16px;padding:22px 24px;margin:40px 0}
+.bl-prod>div{flex:1 1 260px}.bl-prod p{margin:0 !important;font-size:18px;line-height:1.45;color:#fff}.bl-prod a{color:#fff}
+.bl-prod .bl-btn{background:#fff;color:var(--dg)}.bl-art .bl-prod a.bl-btn{color:var(--dg)}
+
+/* FAQ */
+.bl-faq details{border-bottom:1px solid var(--ln)}.bl-faq{border-top:0}
+.bl-faq details:first-of-type{border-top:1px solid var(--ln)}
+.bl-faq summary{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:18px 0;font-weight:600;font-size:18px;cursor:pointer;list-style:none;min-height:44px}
+.bl-faq summary::-webkit-details-marker{display:none}
+.bl-pl{flex:none;font-size:26px;line-height:1;color:var(--g);transition:transform .2s}
+.bl-faq details[open] .bl-pl{transform:rotate(45deg)}
+.bl-faq details p{margin:0 0 18px}
+
+/* автор, джерела */
+.bl-au{display:flex;gap:18px;align-items:flex-start;background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:22px 24px;margin:40px 0 28px}
+.bl-au b{display:block;font-size:20px;margin:0 0 4px}.bl-au p{margin:0 0 6px !important;font-size:15px;line-height:1.55}.bl-au .bl-lab{margin:0}
+.bl-dates{color:var(--mu)}
+.bl-src{font-size:15px;color:var(--mu)}.bl-src .bl-lab{color:var(--tx)}.bl-src ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+
+/* списки статей */
+.bl-rel{padding:36px 0 12px;border-top:1px solid var(--ln)}.bl-rel h2{margin:0 0 20px;font-size:30px;letter-spacing:-.02em;font-weight:800}
+.bl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.bl-card{display:flex;flex-direction:column;height:100%;border:1px solid var(--ln);border-radius:16px;overflow:hidden;text-decoration:none;color:var(--tx);background:var(--bg);transition:border-color .15s,transform .15s}
+.bl-card:hover{border-color:var(--g);transform:translateY(-2px)}
+.bl-cb{padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.bl-cb .bl-tag{align-self:flex-start;padding:2px 10px;font-size:13px}
+.bl-cb h3{margin:0;font-size:20px;line-height:1.25;letter-spacing:-.01em;font-weight:700}
+.bl-cb p{margin:0;font-size:15px;line-height:1.5;opacity:.85;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bl-meta{margin-top:auto;padding-top:6px;font-size:14px;color:var(--mu)}
+.bl-gl{padding:26px 0 20px}.bl-it[hidden]{display:none}
+
+/* індекс блогу */
+.bl-top{background:var(--dg);color:#fff;padding:52px 0 56px}
+.bl-top h1{margin:0 0 14px;font-size:clamp(34px,6vw,58px);line-height:1.05;letter-spacing:-.025em;font-weight:800;max-width:16ch;color:#fff}
+.bl-top p{margin:0;font-size:19px;color:#e8f4ec;max-width:46ch}
+.bl-chips{padding:20px 0 6px;display:flex;gap:8px;overflow-x:auto;border-bottom:1px solid var(--ln)}
+.bl-chip{flex:none;border:1px solid var(--ln);background:var(--bg);color:var(--tx);border-radius:99px;padding:10px 18px;font:inherit;font-size:15px;font-weight:500;min-height:44px;cursor:pointer}
+.bl-chip.on{background:var(--dg);border-color:var(--dg);color:#fff;font-weight:700}
+.bl-cta{margin-top:30px}
+
+@media(max-width:700px){.bl{font-size:16px}.bl-lead{font-size:18px}.bl-cols{gap:28px}.bl-side{position:static;max-width:none;width:100%}.bl-toc{display:none}.bl-au{flex-direction:column}.bl-hero{aspect-ratio:16/9}}
+
+.bl-art .bl-src h2{margin:0 0 8px;font-size:15px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--tx)}
+.bl-card .bl-ph span{display:none}.bl-card .bl-ph svg{width:44px;height:44px}
+
+.bl-cv.bl-ph,.bl-hero.bl-ph{display:flex;background:linear-gradient(135deg,#0d3b22,#1d6a3d)}
