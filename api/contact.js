@@ -30,7 +30,7 @@ module.exports = async (req, res) => {
   const token = process.env.TELEGRAM_BOT_TOKEN, chats = String(process.env.TELEGRAM_CHAT_ID || '').split(',').map(x => x.trim()).filter(Boolean);
   if (!token || !chats.length) {
     console.error('telegram env is not set');
-    return res.status(500).json({ ok: false, error: 'Не вдалося надіслати. Зателефонуйте нам: +38 043 250 90 90.' });
+    return res.status(500).json({ ok: false, error: 'Не вдалося надіслати (код: env). Зателефонуйте нам: +38 043 250 90 90.' });
   }
   const rows = [['Тема', topic], ['Ім’я', name], ['Телефон', phone], ['Пошта', email], ['Повідомлення', message], ['Сторінка', page]]
     .filter(r => r[1]);
@@ -41,10 +41,14 @@ module.exports = async (req, res) => {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ chat_id, text, parse_mode: 'HTML', disable_web_page_preview: true }),
       }).then(r => r.json())));
-    if (!results.some(r => r && r.ok)) throw new Error(JSON.stringify(results[0]));
+    if (!results.some(r => r && r.ok)) {
+      const r0 = results[0] || {};
+      console.error('telegram error', r0.error_code, r0.description);
+      return res.status(500).json({ ok: false, error: `Не вдалося надіслати (код: tg ${r0.error_code || '?'} ${String(r0.description || '').slice(0, 60)}). Зателефонуйте нам: +38 043 250 90 90.` });
+    }
     return res.status(200).json({ ok: true });
   } catch (e) {
-    console.error('telegram error', e && e.message);
+    console.error('telegram fetch error', e && e.message);
     return res.status(500).json({ ok: false, error: 'Не вдалося надіслати. Зателефонуйте нам: +38 043 250 90 90.' });
   }
 };
