@@ -309,7 +309,7 @@ def linkify_html(doc, rel, lang):
         if not isinstance(el, NavigableString) or isinstance(el, Comment): continue
         if el.find_parent(['a', 'script', 'style', 'title', 'button', 'textarea', 'option', 'head']): continue
         s = str(el)
-        pats = [(PHONE_RE, lambda m: ('tel:+380432509090', m.group(0))), (MAIL_RE, lambda m: ('mailto:office@avelife.pro', m.group(0)))]
+        pats = [(PHONE_RE, lambda m: ('tel:+380508243279', m.group(0))), (MAIL_RE, lambda m: ('mailto:office@avelife.pro', m.group(0)))]
         for name, href in PAGE_LINKS[lang]:
             pats.append((re.compile(PAGE_CTX[lang].format(n=re.escape(name))), (lambda nm, hf: lambda m: (pre + hf, nm, m))(name, href)))
         hits = []

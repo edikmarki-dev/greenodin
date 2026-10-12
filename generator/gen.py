@@ -132,7 +132,7 @@ SEC_SUB = {'pole': 'Зернові, зернобобові, технічні к�
 # ---------- каркас сторінки ----------
 SITE_URL = 'https://greenodin.vercel.app/'   # домен для canonical, sitemap.xml, Open Graph. Після підключення домену змінити на https://greenodin.site/ і зібрати знову
 EMAIL = 'office@avelife.pro'
-PHONE, PHONE_T = '+380432509090', '+38 043 250 90 90'
+PHONE, PHONE_T = '+380508243279', '+38 050 824 32 79'
 ADDR = 'Вінниця, вул. Миколи Оводова, 51, корп. 1, 5 поверх'
 MAP_Q = 'Вінниця, вулиця Миколи Оводова, 51'
 NAV = [('#about', 'Про GREENODIN'), ('/blog/', 'Блог'), ('patents.html', 'Патенти'), ('#partners', 'Партнерам'), ('kontakty.html', 'Контакти')]
@@ -245,7 +245,7 @@ def crumbs(pre, items):
 
 # ---------- schema.org ----------
 ORG = {'@type': 'Organization', 'name': 'GREENODIN', 'url': SITE_URL, 'logo': SITE_URL + 'img/logo.png',
-       'telephone': '+380432509090', 'email': EMAIL,
+       'telephone': '+380508243279', 'email': EMAIL,
        'address': {'@type': 'PostalAddress', 'streetAddress': 'вул. Миколи Оводова, 51, корп. 1', 'addressLocality': 'Вінниця', 'addressCountry': 'UA'}}
 def product_ld(p, name):
     ims = IMGS.get(p['slug'], [])
