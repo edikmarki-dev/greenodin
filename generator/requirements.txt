@@ -1,0 +1,5 @@
+# Залежності генератора. Vercel ставить їх сам під час збірки (див. buildCommand у vercel.json).
+beautifulsoup4==4.15.0
+PyYAML==6.0.3
+Pillow==12.3.0
+Markdown==3.10.3

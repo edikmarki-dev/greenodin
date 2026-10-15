@@ -924,7 +924,7 @@ def vercel_json():
             slug = new.strip('/')
             if slug not in by_slug: print('redirect: нема сторінки для', new); continue
             dst = '/' + by_slug[slug]
-        for sp in {path, path + '/'} - {'//'}:
+        for sp in sorted({path, path + '/'} - {'//'}):  # sorted: однаковий порядок при кожній збірці
             if sp in seen: continue
             seen.add(sp); reds.append({'source': sp, 'destination': dst, 'permanent': True})
     OLDBLOG = {'viznachennya-kislotnosti-gruntu': '/blog/ph-gruntu.html', 'sivozmina': '/blog/sivozmina-posibnyk.html'}
@@ -940,7 +940,9 @@ def vercel_json():
     for sl, dst in OLDBLOG.items():
         for sp in ('/' + sl, '/' + sl + '/'):
             if sp not in seen: seen.add(sp); reds.append({'source': sp, 'destination': dst, 'permanent': True})
-    cfg = {'outputDirectory': 'public', 'redirects': reds, 'headers': [
+    # Збірку робить сам Vercel: ставить залежності у venv і запускає build.sh (Python є в образі збірки)
+    build = 'python3 -m venv /tmp/gvenv && /tmp/gvenv/bin/pip install -q -r generator/requirements.txt && PATH=/tmp/gvenv/bin:$PATH sh generator/build.sh'
+    cfg = {'installCommand': 'echo no-npm-install', 'buildCommand': build, 'outputDirectory': 'public', 'redirects': reds, 'headers': [
         {'source': '/assets/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=604800'}]},
         {'source': '/ru/assets/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=604800'}]},
         {'source': '/en/assets/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=604800'}]},

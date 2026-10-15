@@ -3,7 +3,7 @@
 Статичний сайт (uk у корені, `/ru/`, `/en/`) + одна serverless-функція `api/contact.js` для форми.
 
 ## Структура
-- `public/` — готовий сайт, його і віддає Vercel (`outputDirectory` у `vercel.json`).
+- `public/` — готовий сайт. У git його немає: Vercel збирає його сам при кожному push (`buildCommand` у `vercel.json`), локально він з'являється після `sh generator/build.sh`.
 - `generator/` — генератор: `gen.py`, `i18n.py`, `textclean.py`, словники `tr/`, дані `data/`, статика `static/`.
 - `api/contact.js` — відправка форми у Telegram.
 - `vercel.json` — редіректи зі старого сайту та заголовки (генерується `gen.py`, руками не правити).
@@ -11,7 +11,11 @@
 ## Збірка
     sh generator/build.sh
 
-Порядок усередині: `gen.py` → `i18n.py extract` (покаже непереведені фрагменти) → `i18n.py build` (/ru, /en, hreflang, sitemap, посилання на телефони/пошту/сторінки). Після змін у `public/` робимо commit і push — Vercel задеплоїть сам.
+Порядок усередині: `gen.py` → `i18n.py extract` (покаже непереведені фрагменти) → `i18n.py build` (/ru, /en, hreflang, sitemap, посилання на телефони/пошту/сторінки).
+
+Деплой: commit і push змін у `generator/` (тексти, статті, картинки) — Vercel сам поставить залежності з `generator/requirements.txt`, запустить `build.sh` і викладе `public/`. Збирати локально треба лише для перегляду. Якщо збірка змінила `vercel.json` (нові редіректи) — його теж комітимо: Vercel читає `vercel.json` з репозиторію ДО збірки.
+
+Нову статтю блогу можна додати й без локальної збірки: файл `generator/data/blog/<slug>.md` + картинки в `generator/static/img/blog/` → push. Так публікує програма «Автопостинг».
 
 ## Де що правити
 - Тексти товарів: `generator/data/catalog.json` (+ чистка у `textclean.py`), вкладки «Вирощування» — `generator/grow_blocks.json`.
@@ -20,7 +24,7 @@
 
 ## Змінні середовища Vercel
 `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` (кілька id через кому). Заявки з форм приходять у Telegram.
-Framework Preset: Other, Build Command порожній.
+Framework Preset: Other. Команди збірки задані у `vercel.json` (генерується `gen.py`), у налаштуваннях проєкту їх не чіпаємо.
 
 ## Блог і поточний стан (для нового сеансу)
 
