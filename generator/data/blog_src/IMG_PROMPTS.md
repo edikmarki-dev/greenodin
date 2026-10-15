@@ -29,5 +29,13 @@
 | 21 | par-kulisy.jpg | inline | Winter field in snow with parallel strips of tall dry sunflower stalks standing across the wind, snow drifts caught behind them, grey sky | Куліси з високостеблових рослин затримують сніг на полі |
 | 22 | skhema-cover.jpg | cover | Farmer's hands in work gloves writing in a field notebook on the bonnet of a pickup truck, a crop field blurred behind, no faces, no readable text | Агроном робить записи в польовому журналі |
 | 23 | skhema-map.jpg | inline | Aerial view of five rectangular fields of similar size in different colours (green, yellow, brown, pale stubble, dark soil), separated by narrow farm roads | Вигляд зверху на п’ять полів сівозміни |
+| 24 | chasnyk-cover.jpg | cover | Long rows of garlic plants with tall green leaves in a clean field, straw mulch between the rows, early summer morning light, Ukrainian village far in the background | Рядки часнику на полі з солом’яною мульчею |
+| 25 | chasnyk-bulbs.jpg | inline | Freshly dug garlic bulbs with soil still on the roots lying on dark soil next to a wooden crate, harvest light, no hands | Щойно викопані головки часнику біля ящика |
+| 26 | chasnyk-drying.jpg | inline | Bunches of garlic hung to dry under an open ventilated shed roof, warm side light, dusty air, rustic wooden beams | Сушіння часнику пучками під навісом |
+| 27 | koly-sadyty-cover.jpg | cover | Hands in work gloves pressing a garlic clove pointed end up into a furrow of dark autumn soil, more cloves lined up along the furrow, golden autumn light, no faces | Садіння зубків часнику вістрям догори в борозну восени |
+| 28 | koly-sadyty-cloves.jpg | inline | Garlic bulb broken into cloves on a wooden table, cloves sorted into three piles by size from large to small, soft side light, no labels | Зубки часнику, розсортовані за розміром |
+| 29 | koly-sadyty-mulch.jpg | inline | Planted garlic bed covered with golden straw mulch in late autumn, a few fallen leaves, cold grey light, wooden edge of the bed | Грядка з посадженим часником під соломою на зиму |
+| 30 | grunt-cover.jpg | cover | Hands holding dark crumbly loamy soil above a freshly dug bed prepared for garlic planting, soil texture visible, blurred field behind, soft light | Пухкий ґрунт у долонях на підготовленій грядці під часник |
+| 31 | grunt-granules.jpg | inline | Close-up of a hand scattering dark organic granules around young garlic shoots in spring soil, granules visible mid-air, shallow depth of field, no packaging | Внесення гранульованого добрива біля молодого часнику навесні |
 
 Вимога до всіх: без тексту й логотипів, без облич; потім я стискаю до webp і підставляю alt. Для статей про результати й дані (30/40/65%) ілюстрації не потрібні, там потрібні реальні фото з ваших ділянок.

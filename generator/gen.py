@@ -936,7 +936,7 @@ def vercel_json():
                'podolannja-vplyvu-bojeprypasiv-na-rodjuchi-grunty', 'ekocid-ukraines-naslidki-boyovih-dy-strateg-vidnovlennya',
                'dorozhne-gospodarstvo-ta-blagoustrij-mista', 'blog/page-2']:
         OLDBLOG.setdefault(sl, '/blog/')   # тимчасово на індекс, поки статтю не перенесено
-    OLDBLOG['viroshchuvannya-chasniku'] = '/blog/'
+    OLDBLOG['viroshchuvannya-chasniku'] = '/blog/chasnyk-vyroshchuvannya.html'
     for sl, dst in OLDBLOG.items():
         for sp in ('/' + sl, '/' + sl + '/'):
             if sp not in seen: seen.add(sp); reds.append({'source': sp, 'destination': dst, 'permanent': True})

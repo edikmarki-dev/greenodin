@@ -905,12 +905,12 @@
   },
   {
    "source": "/viroshchuvannya-chasniku",
-   "destination": "/blog/",
+   "destination": "/blog/chasnyk-vyroshchuvannya.html",
    "permanent": true
   },
   {
    "source": "/viroshchuvannya-chasniku/",
-   "destination": "/blog/",
+   "destination": "/blog/chasnyk-vyroshchuvannya.html",
    "permanent": true
   },
   {
