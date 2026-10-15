@@ -1,2 +1,7 @@
-generator
+# Що не потрібно для збірки на Vercel. generator/ потрібен: Vercel сам запускає генератор.
+# Назовні віддається лише public/ (outputDirectory), тож вихідники генератора не публікуються.
 README.md
+_gen.py
+_i18n.py
+_redirects_src.json
+i18n
