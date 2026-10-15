@@ -11,7 +11,10 @@ SITE = os.environ.get('GREENODIN_OUT', os.path.join(os.path.dirname(HERE), 'publ
 FULL_INDEX = os.path.join(HERE, 'build', 'site_index_full.html')
 TR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tr')
 LANGS = ['ru', 'en']
-UK_ONLY = ('blog/',)   # сторінки без перекладу: лише українська, без hreflang
+UK_ONLY = ()   # сторінки без перекладу: лише українська, без hreflang
+# Статті блогу: якщо переклад статті неповний, сторінку цією мовою не публікуємо
+# (а не показуємо суміш мов), посилання на неї з перекладених сторінок ведуть на українську.
+STRICT = ('blog/',)
 CYR = re.compile(r'[А-Яа-яІіЇїЄєҐґ’]')
 ATTRS = ('alt', 'title', 'aria-label', 'placeholder', 'data-o', 'data-n', 'data-l')
 META_NAMES = {'description', 'og:title', 'og:description', 'twitter:title', 'twitter:description'}
@@ -150,7 +153,7 @@ def tr_ld(o, T, lang):
         return T(o) if CYR.search(o) else o
     return o
 
-SHARED = re.compile(r'^(img/|favicon\.ico$|site\.webmanifest$|assets/(style|privacy)\.css$)')
+SHARED = re.compile(r'^(img/|favicon\.ico$|site\.webmanifest$|assets/(style|privacy|blog)\.css$)')
 def fix_url(u):
     """відносне посилання на спільний ресурс у кореневій теці → додаємо ../"""
     if re.match(r'^(https?:|mailto:|tel:|#|/|data:|javascript:)', u) or not u: return u
@@ -161,7 +164,7 @@ def fix_url(u):
 def lang_url(rel, lang, S=None):
     """абсолютний URL сторінки rel у мові lang"""
     S = S or site_url()
-    out = '' if rel == 'index.html' else rel
+    out = rel[:-len('index.html')] if rel.endswith('index.html') else rel   # blog/index.html → blog/
     return S + ('' if lang == 'uk' else lang + '/') + out
 
 def switch_href(rel, cur, to):
@@ -170,21 +173,22 @@ def switch_href(rel, cur, to):
 
 GLOBE = '<svg aria-hidden="true" class="lsg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 4 5.7 4 9s-1.4 6.4-4 9c-2.6-2.6-4-5.7-4-9s1.4-6.4 4-9z"/></svg>'
 CHEV = '<svg aria-hidden="true" class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>'
-def make_switcher(soup, rel, cur, cls):
+def make_switcher(soup, rel, cur, cls, langs=None):
     html = [f'<div class="lsd {cls}" id="lsd" data-lsw><button class="lsb" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lsm" aria-label="{SW_ARIA[cur]}">{GLOBE}<span>{LABEL[cur]}</span>{CHEV}</button><ul class="lsm" id="lsm">']
-    for L in ALL:
+    for L in (langs or ALL):
         on = ' class="on" aria-current="true"' if L == cur else ''
         html.append(f'<li><a{on} data-lang="{L}" href="{switch_href(rel, cur, L)}" hreflang="{L}" lang="{L}"><b>{LABEL[L]}</b>{LANG_NAME[L]}</a></li>')
     html.append('</ul></div>')
     return BeautifulSoup(''.join(html), 'html.parser').div
 
-def add_alt_links(soup, rel):
+def add_alt_links(soup, rel, langs=None):
+    langs = langs or ALL
     for l in soup.find_all('link', rel='alternate'):
         if l.get('hreflang'): l.decompose()
     can = soup.find('link', rel='canonical')
     if not can: return
     prev = can
-    for L in ALL + ['x-default']:
+    for L in langs + ['x-default']:
         href = lang_url(rel, 'uk' if L == 'x-default' else L)
         t = soup.new_tag('link', rel='alternate', hreflang=L, href=href)
         prev.insert_after(t); prev = t
@@ -193,9 +197,23 @@ def add_alt_links(soup, rel):
     for m in soup.find_all('meta', property='og:locale:alternate'): m.decompose()
     if cur:
         prev = cur
-        for L in ALL:
+        for L in langs:
             if LOCALE[L] != cur.get('content'):
                 t = soup.new_tag('meta', property='og:locale:alternate', content=LOCALE[L]); prev.insert_after(t); prev = t
+
+SKIP = set()   # (rel, lang): сторінки, яких цією мовою немає (неповний переклад статті)
+
+def avail(rel):
+    return [L for L in ALL if (rel, L) not in SKIP]
+
+def page_of_href(rel, href):
+    """відносне посилання зі сторінки rel → rel цільової сторінки (або None)"""
+    if re.match(r'^(https?:|mailto:|tel:|#|data:|javascript:)', href) or not href: return None
+    path = href.split('#')[0].split('?')[0]
+    if path.startswith('/'): t = path.lstrip('/')
+    else: t = os.path.normpath(os.path.join(os.path.dirname(rel), path)).replace(os.sep, '/')
+    if t.endswith('/') or t in ('', '.'): t = (t.rstrip('/') + '/index.html').lstrip('/')
+    return t
 
 def process(doc, rel, lang):
     """doc — українська сторінка; повертає html для мови lang (uk — лише hreflang і перемикач)"""
@@ -237,9 +255,18 @@ def process(doc, rel, lang):
                     try:
                         el['data-g'] = json.dumps([[fix_url(p), T(c) if CYR.search(c) else c] for p, c in json.loads(dg)], ensure_ascii=False)
                     except Exception as e: print('data-g err', rel, e)
+                hv = el.get('href') if el.name == 'a' else None
+                if hv:
+                    tgt = page_of_href(rel, hv)
+                    if tgt and (tgt, lang) in SKIP:
+                        el['href'] = '/' + (tgt[:-len('index.html')] if tgt.endswith('index.html') else tgt) + (('#' + hv.split('#', 1)[1]) if '#' in hv else '')
+                        el['hreflang'] = 'uk'; hv = None
+                    elif hv.startswith('/') and not hv.startswith('//'):
+                        el['href'] = '/' + lang + hv   # абсолютне посилання на сторінку сайту → та сама сторінка цією мовою
+                        hv = None
                 for a in ('href', 'src', 'srcset', 'poster'):
                     v = el.get(a)
-                    if v:
+                    if v and not (a == 'href' and el.name == 'a' and v.startswith('/')):
                         if a == 'srcset': el[a] = ', '.join(fix_url(x.strip().split(' ')[0]) + (' ' + x.strip().split(' ', 1)[1] if ' ' in x.strip() else '') for x in v.split(','))
                         else: el[a] = fix_url(v)
                 ds = el.get('data-src')
@@ -251,10 +278,10 @@ def process(doc, rel, lang):
     hb = soup.select_one('header .hb')
     if hb:
         bg = hb.select_one('.bg')
-        sw = make_switcher(soup, rel, lang, 'lh')
+        sw = make_switcher(soup, rel, lang, 'lh', avail(rel))
         (bg.insert_before(sw) if bg else hb.append(sw))
     m = soup.select_one('header #m')
-    add_alt_links(soup, rel)
+    add_alt_links(soup, rel, avail(rel))
     out = str(soup)
     if lang != 'uk':
         out = out.replace('<html lang="uk"', f'<html lang="{lang}"')
@@ -351,6 +378,16 @@ def build():
     css = css.split(CSS_MARK)[0].rstrip()
     open(cp, 'w', encoding='utf-8').write(css + '\n' + CSS)
     for L in LANGS: shutil.rmtree(f'{SITE}/{L}', ignore_errors=True)
+    # статті з неповним перекладом — цією мовою не публікуємо
+    TT = {L: Tr(L) for L in LANGS}
+    for f in sorted(glob.glob(SITE + '/**/*.html', recursive=True)):
+        rel = os.path.relpath(f, SITE)
+        if rel.split('/')[0] in LANGS or not rel.startswith(STRICT): continue
+        segs = list(segments_of(open(f, encoding='utf-8').read()))
+        for L in LANGS:
+            miss = [x for x in segs if x not in TT[L].d and x.strip() not in TT[L].s]
+            if miss:
+                SKIP.add((rel, L)); print(f'skip {L}/{rel}: не перекладено {len(miss)} фрагм., напр. {miss[0][:60]!r}')
     urls = []
     # українські сторінки: hreflang + перемикач на місці
     for f in sorted(glob.glob(SITE + '/**/*.html', recursive=True)):
@@ -364,6 +401,7 @@ def build():
     # переклади
     for L in LANGS:
         for rel in urls:
+            if (rel, L) in SKIP: continue
             src = FULL_INDEX if rel == 'index.html' else f'{SITE}/{rel}'
             out = process(open(src, encoding='utf-8').read(), rel, L)
             dst = f'{SITE}/{L}/{rel}'; os.makedirs(os.path.dirname(dst), exist_ok=True)
@@ -377,15 +415,13 @@ def build():
     # sitemap з alternates
     from datetime import date
     today = date.today().isoformat()
-    pri = lambda p: '1.0' if p == 'index.html' else '0.9' if p == 'katalog.html' else '0.8' if p.startswith(('p/', 'k/')) else '0.6'
+    pri = lambda p: '1.0' if p == 'index.html' else '0.9' if p == 'katalog.html' else '0.8' if p.startswith(('p/', 'k/')) else '0.7' if p.startswith('blog/') else '0.6'
     rows = []
     for rel in sorted(set(urls)):
-        alts = ''.join(f'<xhtml:link rel="alternate" hreflang="{L}" href="{lang_url(rel, L)}"/>' for L in ALL) + f'<xhtml:link rel="alternate" hreflang="x-default" href="{lang_url(rel, "uk")}"/>'
-        for L in ALL:
+        langs = avail(rel)
+        alts = ''.join(f'<xhtml:link rel="alternate" hreflang="{L}" href="{lang_url(rel, L)}"/>' for L in langs) + f'<xhtml:link rel="alternate" hreflang="x-default" href="{lang_url(rel, "uk")}"/>'
+        for L in langs:
             rows.append(f'  <url><loc>{lang_url(rel, L)}</loc><lastmod>{today}</lastmod><priority>{pri(rel)}</priority>{alts}</url>\n')
-    for f in sorted(glob.glob(SITE + '/blog/*.html')):
-        rel = os.path.relpath(f, SITE)
-        rows.append(f'  <url><loc>{lang_url(rel, "uk")}</loc><lastmod>{today}</lastmod><priority>0.7</priority></url>\n')
     open(SITE + '/sitemap.xml', 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + ''.join(rows) + '</urlset>\n')
     n = sum(len(v) for v in MISSING.values())
     print('pages', len(urls), 'x', len(ALL), '| untranslated:', {k: len(v) for k, v in MISSING.items()})
