@@ -17,6 +17,8 @@
 
 Нову статтю блогу можна додати й без локальної збірки: файл `generator/data/blog/<slug>.md` + картинки в `generator/static/img/blog/` → push. Так публікує програма «Автопостинг».
 
+Програма «Автопостинг» публікує статтю через окрему гілку `autopost/<slug>` і запит на злиття (формат описує `autopost.json` у корені): файл статті, картинки webp і словники перекладу саме цієї статті `generator/tr/ru/<slug>.json`, `generator/tr/en/<slug>.json`. `i18n.py` підхоплює їх разом із `tr/ru.json` і `tr/en.json` (головний словник має перевагу). Список статей `blog/index.html` не ховається через неперекладену картку — ховається лише сама неперекладена стаття.
+
 ## Де що правити
 - Тексти товарів: `generator/data/catalog.json` (+ чистка у `textclean.py`), вкладки «Вирощування» — `generator/grow_blocks.json`.
 - Макет і стилі: `generator/gen.py`, `generator/static/assets/style.css` (ручний CSS — ДО маркера `/* i18n-switcher */`).

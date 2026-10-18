@@ -78,8 +78,15 @@ def segments_of(doc):
                 except Exception: pass
 
 def load(lang):
+    """Словник мови: tr/<lang>.json + словники окремих статей tr/<lang>/*.json
+    (їх додає програма «Автопостинг» разом зі статтею; головний словник має перевагу)."""
+    d = {}
+    for f in sorted(glob.glob(f'{TR}/{lang}/*.json')):
+        try: d.update(json.load(open(f, encoding='utf-8')))
+        except Exception as e: print(f'tr: пропущено {f}: {e}')
     p = f'{TR}/{lang}.json'
-    return json.load(open(p, encoding='utf-8')) if os.path.exists(p) else {}
+    if os.path.exists(p): d.update(json.load(open(p, encoding='utf-8')))
+    return d
 
 def extract():
     order, seen = [], set()
@@ -383,6 +390,8 @@ def build():
     for f in sorted(glob.glob(SITE + '/**/*.html', recursive=True)):
         rel = os.path.relpath(f, SITE)
         if rel.split('/')[0] in LANGS or not rel.startswith(STRICT): continue
+        # список статей не ховаємо через одну неперекладену картку: решта статей у ньому перекладені
+        if rel == 'blog/index.html': continue
         segs = list(segments_of(open(f, encoding='utf-8').read()))
         for L in LANGS:
             miss = [x for x in segs if x not in TT[L].d and x.strip() not in TT[L].s]

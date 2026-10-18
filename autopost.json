@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "site": "https://greenodin.vercel.app",
+  "baseBranch": "main",
+  "branchPrefix": "autopost/",
+  "blog": {
+    "translations": "dictionary",
+    "profile": "greenodin",
+    "articlePath": "generator/data/blog/{slug}.md",
+    "articlesDir": "generator/data/blog",
+    "imageDir": "generator/static/img/blog",
+    "imageUrl": "../img/blog/{file}",
+    "coverValue": "{file}",
+    "previewPath": "/blog/{slug}.html",
+    "slugPattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+    "languages": [
+      "uk",
+      "ru",
+      "en"
+    ],
+    "defaultLanguage": "uk",
+    "sections": [
+      "Практика агронома",
+      "Вирощування культур"
+    ],
+    "translationsPath": "generator/tr/{lang}/{slug}.json"
+  }
+}
